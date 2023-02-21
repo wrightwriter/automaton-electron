@@ -6,6 +6,14 @@ export interface ReceivingEventUpdate {
   time: number;
 }
 
+export interface ReceivingEventPlay {
+  type: 'play';
+}
+
+export interface ReceivingEventPause {
+  type: 'pause';
+}
+
 /**
  * An event that requests to invoke `auto`, means the client uses the channel.
  */
@@ -16,4 +24,6 @@ export interface ReceivingEventAuto {
 
 export type ReceivingEvent =
   | ReceivingEventUpdate
-  | ReceivingEventAuto;
+  | ReceivingEventAuto
+  | ReceivingEventPause
+  | ReceivingEventPlay;

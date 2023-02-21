@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as AutomatonFxs from '@0b5vr/automaton-fxs';
 import { AutomatonWithGUI } from '@0b5vr/automaton-with-gui';
 import type { EmittingEvent } from './events/EmittingEvent';
@@ -33,13 +34,31 @@ function update(): void {
 }
 update();
 
+
+export type ChanObj = {string:number};
+
 // == websocket ====================================================================================
 function processWs( raw: string ): void {
   const data: ReceivingEvent = JSON.parse( raw );
+  // console.log(data);
   if ( data.type === 'update' ) {
     if ( !isNaN( data.time ) ) {
       time = data.time;
+
+      // Send channel data.
+      // @ts-ignore
+      const channels: ChanObj = {};
+      automaton.channels.map( ( chan, idx)=> {
+        const chan_name = automaton.channelNames[ idx ];
+        // @ts-ignore
+        channels[ chan_name ] = chan.currentValue;
+      } );
+      emitWs( { type: 'data', data: channels } );
     }
+  } else if ( data.type === 'play' ) {
+    automaton.play();
+  } else if ( data.type === 'pause' ) {
+    automaton.pause();
   } else if ( data.type === 'auto' ) {
     automaton.auto( data.name );
   }

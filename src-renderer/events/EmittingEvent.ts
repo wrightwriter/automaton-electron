@@ -1,3 +1,5 @@
+import { ChanObj } from "../main";
+
 /**
  * An event that will be emitted when the user presses the play button.
  */
@@ -28,8 +30,18 @@ export interface EmittingEventSave {
   data: string;
 }
 
+/**
+ * An event that will be emitted when channel data is sent.
+ */
+export interface EmittingEventChannelsData {
+  type: 'data';
+  // data: ChanObj[];
+  data: ChanObj;
+}
+
 export type EmittingEvent =
   | EmittingEventPlay
   | EmittingEventPause
   | EmittingEventSeek
-  | EmittingEventSave;
+  | EmittingEventSave
+  | EmittingEventChannelsData;

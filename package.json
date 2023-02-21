@@ -1,5 +1,5 @@
 {
-  "name": "automaton-electron",
+  "name": "automaton-electron-send-fork",
   "version": "4.2.1",
   "main": "dist-main/index.js",
   "license": "MIT",
@@ -18,7 +18,10 @@
     "build-electron": "electron-forge package",
     "lint": "yarn lint-renderer && yarn lint-main",
     "lint-renderer": "eslint \"src-renderer/**/*.ts\"",
-    "lint-main": "eslint \"src-main/**/*.ts\""
+    "lint-main": "eslint \"src-main/**/*.ts\"",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",

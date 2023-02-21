@@ -35,7 +35,7 @@ module.exports = {
             "flatTernaryExpressions": true, // ternary should be performed in flat
             "MemberExpression": 1 // member chain should have 2 spaces
         } ], // it forces 2 spaces indentation
-        "linebreak-style": [ "error", "unix" ], // fuck you, CRLF
+        "linebreak-style": [ "error", "windows" ], // fuck you, CRLF
         "quotes": [ "error", "single" ], // quotes must be single
         "eqeqeq": [ "error", "smart" ], // fuck you, `==`
         "max-len": [ "error", { // don't be too long, code

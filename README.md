@@ -1,4 +1,7 @@
-# automaton-electron
+
+# automaton-electron-send-fork
+
+Fork of automaton-electron by 0b5vr with the change that it broadcasts every channel's values thru WebSocket to the demoengine. This happens every frame, when time is received from the demoengine.
 
 WIP
 
